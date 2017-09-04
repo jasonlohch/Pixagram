@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
-  get 'welcome/index'
-
-  root 'welcome#index'
-
   resources :users
+  resources :sessions, only: [:new, :create, :destroy]
+  root 'welcome#index'
   match '/sign_up', to: 'users#new', via: 'get'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  match '/sign_in',  to: 'sessions#new',         via: 'get'
+  match '/sign_out', to: 'sessions#destroy',     via: 'delete'
 end
