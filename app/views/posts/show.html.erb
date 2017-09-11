@@ -1,0 +1,31 @@
+  <div class="container">
+  <div class="row">
+    <br>
+    <div class="well" style="width: 440px; margin-left: 360px;">
+    <%= image_tag(@post.image.url(:medium)) %>
+    <br></br>
+    <p><%= @post.description %></p>
+    <p>Posted by: <strong><%= @post.user.name %></strong></p>
+    <% if @post.user == current_user %>
+    <button class="btn btn-default"><span class="glyphicon glyphicon-pencil"></span><%= link_to ' Edit', edit_post_path(@post) %></button>
+    <button class="btn btn-default"><span class="glyphicon glyphicon-trash"></span><%= link_to ' Delete', post_path(@post), method: :delete, data: { confirm: 'Are you sure?'} %>
+    <% end %></button>
+    <br></br>
+    <% if @post.location %>
+    <div class="row" style="margin-right: 10px; margin-left: 10px;">
+    <iframe width="400" height="200" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAaH1D6a1lvmoWURX8ScLR5_V3o2Ge-Orw&q=<%= @post.location %>" allowfullscreen>
+    </iframe>
+    </div>
+    <% end %>
+    <div class="row" style="text-align: left; margin-left: 10px; margin-right: 10px;">
+      	<h4>Comments</h4>
+        <div id="comm">
+          <%= render @post.comments %>
+        </div>
+
+        <%= render "comments/form" %>
+    </div>
+    </div>
+  </div> 
+  <hr>
+</div>

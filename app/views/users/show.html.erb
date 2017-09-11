@@ -1,2 +1,6 @@
-<%= @user.name %>, <%= @user.email %>
+<h1>Profile Page</h1>
+<p>Name: <%= @user.name %></p>
+<p>Email: <%= @user.email %></p>
+<%= link_to "Show all users", users_path %> |
+<%= link_to "Edit profile", edit_user_path(@user) %> |
 <%= link_to "Sign out", sign_out_path, method: "delete" %>

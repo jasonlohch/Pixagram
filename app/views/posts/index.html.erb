@@ -1,0 +1,12 @@
+<br>
+<div id="search">
+  <%= render :partial => 'posts/search' %>
+</div>
+<br>
+<% @posts.each do |post| %>
+<div class="well" style="width: 440px; margin-left: 360px;">
+<%= link_to image_tag(post.image.url(:medium)), post_path(post) %>
+<br></br>
+<%= post.description %>
+</div>
+<% end %>

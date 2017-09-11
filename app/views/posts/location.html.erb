@@ -1,0 +1,11 @@
+<br>
+<% @posts.each do |post| %>
+<div class="well" style="width: 440px; margin-left: 360px;">
+<%= link_to image_tag(post.image.url(:medium)), post_path(post) %>
+<br></br>
+<%= post.description %>
+</div>
+<% end %>
+
+ <iframe width="" height="" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDXmQAH1SaopnUdSFHAkXOX4gmIGwBkNyo&q=<%= @post.location %>" allowfullscreen>
+ </iframe>

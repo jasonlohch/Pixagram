@@ -1,0 +1,4 @@
+<p><strong><%= comment.user.name if comment.user %></strong> <%= comment.content %>
+<% if comment.user == current_user %>
+<small><%= link_to "Delete", comment_path(comment, @post), method: :delete, data: {confirm: "Are you sure?"}, remote: true %></small></p>
+<% end %>
